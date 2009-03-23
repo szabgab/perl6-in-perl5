@@ -2,6 +2,7 @@ package Inline::Rakudo;
 use strict;
 use warnings;
 
+
 # Needs the following environment variables:
 # RAKUDO_DIR needs to point to the Rakudo directory
 # PARROT_DIR needs to point to the directory where parrot was checked out
@@ -17,10 +18,14 @@ use warnings;
 # perl Build.PL
 # perl Build
 # perl Build test
+
+use Carp ();
+
 my $rakudo;
 
 sub new  {
 	my ($class) = @_;
+	Carp::croak("You should not call new twice") if $rakudo;
 	my $self = bless {}, $class;
 	chdir $ENV{PARROT_DIR};
 	$self->{parrot} = load_rakudo();

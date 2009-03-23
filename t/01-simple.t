@@ -19,3 +19,8 @@ is($rakudo->run_code($code), 'f', 'function definition returns function name');
 
 is($rakudo->run_code('f(41)'), 42, 'function call successful');
 
+
+eval {
+	Inline::Rakudo->new;
+};
+diag $@;
