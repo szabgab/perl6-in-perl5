@@ -1,20 +1,21 @@
-#!/usr/bin/perl 
 use strict;
 use warnings;
 
-use FindBin;
-use lib "$FindBin::Bin/lib";
+use Test::More;
+
+plan tests => 3;
+
 use Inline::Rakudo;
 
 my $rakudo = Inline::Rakudo->new;
-#print $rakudo->run_code('"world".say'). "\n";
+isa_ok($rakudo, 'Inline::Rakudo');
 
 my $code  = <<'END_CODE';
 sub f($n) {
 	return $n+1;
 }
 END_CODE
-$rakudo->run_code($code);
+is($rakudo->run_code($code), 'f', 'function definition returns function name');
 
-print $rakudo->run_code('f(41)'). "\n";
+is($rakudo->run_code('f(41)'), 42, 'function call successful');
 

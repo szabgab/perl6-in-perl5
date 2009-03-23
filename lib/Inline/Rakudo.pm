@@ -21,6 +21,7 @@ use warnings;
 sub new  {
 	my ($class) = @_;
 	my $self = bless {}, $class;
+	chdir $ENV{PARROT_DIR};
 	$self->{parrot} = load_rakudo();
 	return $self;
 }
