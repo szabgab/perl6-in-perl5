@@ -7,7 +7,7 @@ plan tests => 3;
 
 use Inline::Rakudo;
 
-my $rakudo = Inline::Rakudo->new;
+my $rakudo = Inline::Rakudo->rakudo;
 isa_ok($rakudo, 'Inline::Rakudo');
 
 my $code  = <<'END_CODE';

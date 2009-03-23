@@ -17,6 +17,7 @@ use warnings;
 # perl Build.PL
 # perl Build
 # perl Build test
+my $rakudo;
 
 sub new  {
 	my ($class) = @_;
@@ -24,6 +25,12 @@ sub new  {
 	chdir $ENV{PARROT_DIR};
 	$self->{parrot} = load_rakudo();
 	return $self;
+}
+
+sub rakudo {
+	my ($class) = @_;
+	$rakudo ||= $class->new;
+	return $rakudo;
 }
 
 sub load_rakudo {
@@ -75,5 +82,6 @@ sub run_sub {
 	my $res = $self->run_code($code);
 	return $res;
 }
+
 
 1;
