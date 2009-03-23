@@ -38,6 +38,9 @@
 # Avoid archives of this distribution
 \bInline-Rakudo-[\d\.\_]+
 
+.gitignore
+.git
+
 
 
 

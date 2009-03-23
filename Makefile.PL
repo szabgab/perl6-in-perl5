@@ -19,4 +19,9 @@ requires       'perl'                     => '5.008005';
 requires       'FindBin'                  => 0;
 test_requires  'Test::More'               => '0.47';
 
+
+# homepage       '';
+# bugtracker     '';
+repository     'http://github.com/szabgab/perl6-in-perl5/';
+
 WriteAll;

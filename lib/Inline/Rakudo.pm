@@ -54,6 +54,9 @@ Inline::Rakudo - allow to use Rakudo from Perl 5 code
   # this does not exist as we have not imported it
   g(1, 2, 3); 
 
+=head1 WARNING
+
+This is an alpha version of the module. Its API can change without notice.
 
 =head1 SETUP
 
