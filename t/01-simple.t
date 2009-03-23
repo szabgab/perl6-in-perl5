@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More;
 
-plan tests => 3;
+plan tests => 4;
 
 use Inline::Rakudo;
 
@@ -23,4 +23,4 @@ is($rakudo->run_code('f(41)'), 42, 'function call successful');
 eval {
 	Inline::Rakudo->new;
 };
-diag $@;
+like $@, qr/You should not call new twice/, 'second new() dies';
