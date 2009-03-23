@@ -160,8 +160,7 @@ sub run_sub {
 
 =head1 COPYRIGHT
 
-Copyright 2008-2009 The Padre development team as listed in Padre.pm.
-L<http://padre.perlide.org/>
+Copyright 2009 Gabor Szabo gabor@szabgab.com
 
 =head1 LICENSE
 
@@ -191,7 +190,7 @@ FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 SUCH DAMAGES.
 
-=head1 ACKNOWLEDGEMENTS
 
+=cut
 
 1;
