@@ -69,5 +69,11 @@ END_PIR
 	return $pmc->get_string();
 }
 
+sub run_sub {
+	my ($self, $sub, @args) = @_;
+	my $code = "$sub(" . join(",", @args) . ")";
+	my $res = $self->run_code($code);
+	return $res;
+}
 
 1;
