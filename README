@@ -1,0 +1,25 @@
+Perl 6 in Perl 5
+
+After building Parrot and Rakudo I set the RAKUDO_DIR 
+environment variable to point to the directory 
+where Rakudo was checked out. I also set the PARROT_DIR 
+environment variable to point to the directory 
+where Parrot was checked out (in the currently standard setup
+that would be $RAKUDO_DIR/parrot).
+
+Then I set LD_LIBRARY_PATH to point to $PARROT_DIR/blib/lib/
+
+This is what I have now in .bashrc
+
+   export RAKUDO_DIR=$HOME/work/rakudo
+   export PARROT_DIR=$RAKUDO_DIR/parrot
+   export LD_LIBRARY_PATH=$PARROT_DIR/blib/lib/
+
+
+Other than that
+
+perl Makefile.PL
+make
+make test
+make install
+
