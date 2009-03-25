@@ -7,6 +7,12 @@ environment variable to point to the directory
 where Parrot was checked out (in the currently standard setup
 that would be $RAKUDO_DIR/parrot).
 
+Then I had to build Parrot::Embed
+cd $PARROT_DIR/ext/Parrot-Embed
+perl Build.PL
+perl Build
+perl Build test
+
 Then I set LD_LIBRARY_PATH to point to $PARROT_DIR/blib/lib/
 
 This is what I have now in .bashrc
