@@ -40,7 +40,20 @@ END_CODE
 	is($rakudo->run_sub('len', 124), 3, 'function call with parameter successful');
 	is($rakudo->run_sub('len', "abc"), 3, 'function call with parameter successful');
 	is($rakudo->run_sub('len', '$xyz'), 4, 'function call with parameter successful');
+	is($rakudo->run_sub('len', q($x'yz)), 5, 'function call with parameter successful');
+	
+	my $data = slurp($0);
+	#diag length $data;
+	#$data = substr($data, 0, 168);
+	is($rakudo->run_sub('len', $data), length($data), 'function call with parameter successful');
 
-	BEGIN { $tests += 4; }
+
+	BEGIN { $tests += 6; }
 }
 
+sub slurp {
+	my $file = shift;
+	open my $fh, '<', $file or die;
+	local $/ = undef;
+	return <$fh>;
+}

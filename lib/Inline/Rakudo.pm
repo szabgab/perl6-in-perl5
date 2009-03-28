@@ -165,7 +165,8 @@ END_PIR
 
 sub run_sub {
 	my ($self, $sub, @args) = @_;
-	my $code = "$sub(" . join(",", map {"'$_'"} @args) . ")";
+	# TODO we need a better way to pass the parameters
+	my $code = "$sub(" . join(",", map {$_ =~ s/'/\\'/g; "'$_'"} @args) . ")";
 	#warn "code '$code'\n";
 	my $res = $self->run_code($code);
 	return $res;
