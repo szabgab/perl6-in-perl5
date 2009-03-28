@@ -1,7 +1,8 @@
 
 0.02 2009.03.28
-   Wrap passed parameters in single quote so when passing strings they will be treated as strings
+   Wrap passed parameters in single quote so when passing strings they will be treated as strings.
    Chdir back after executing code.
+   Set the PARROT_DIR and RAKUDO_DIR requirements in Makefile.PL.
 
 0.01 2009.03.23
-    First version released to CPAN
+    First version released to CPAN.
