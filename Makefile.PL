@@ -34,8 +34,9 @@ requires       'FindBin'                  => 0;
 requires       'Carp'                     => 0;
 requires       'Cwd'                      => 0;
 
-requires       'Parrot::Embed'            => 0;
-requires       'Parrot::Interpreter'      => 0;
+# for now we leave them out as we don't want to trigger the download of Parrot from CPAN
+#requires       'Parrot::Embed'            => 0;
+#requires       'Parrot::Interpreter'      => 0;
 
 test_requires  'Test::More'               => '0.47';
 
