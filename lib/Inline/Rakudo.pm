@@ -156,7 +156,8 @@ END_PIR
 
 sub run_sub {
 	my ($self, $sub, @args) = @_;
-	my $code = "$sub(" . join(",", @args) . ")";
+	my $code = "$sub(" . join(",", map {"'$_'"} @args) . ")";
+	#warn "code '$code'\n";
 	my $res = $self->run_code($code);
 	return $res;
 }

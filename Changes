@@ -1,3 +1,6 @@
 
+0.02 2009.03.28
+   Wrap passed parameters in single quote so when passing strings they will be treated as strings
+
 0.01 2009.03.23
     First version released to CPAN
