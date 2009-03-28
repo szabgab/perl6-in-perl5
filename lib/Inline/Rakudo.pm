@@ -82,6 +82,7 @@ cwd still needs to be PARROT_DIR or I get the following error:
 
 
 use Carp ();
+use Cwd  ();
 
 my $rakudo;
 
@@ -100,8 +101,10 @@ sub new  {
 	my ($class) = @_;
 	Carp::croak("You should not call new twice") if $rakudo;
 	my $self = bless {}, $class;
+	my $cwd = Cwd::cwd();
 	chdir $ENV{PARROT_DIR};
 	$self->{parrot} = load_rakudo();
+	chdir $cwd;
 	return $self;
 }
 
@@ -147,11 +150,17 @@ sub run_code {
 .end
 END_PIR
 
+	my $cwd = Cwd::cwd();
+	chdir $ENV{PARROT_DIR};
 
 	my $eval = $self->{parrot}->compile( $perl6 );
 	my $foo = $self->{parrot}->find_global('myperl6');
 	my $pmc = $foo->invoke( 'PS', $code );
-	return $pmc->get_string();
+	my $ret = $pmc->get_string();
+	
+	chdir $cwd;
+	
+	return $ret;
 }
 
 sub run_sub {

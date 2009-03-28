@@ -17,6 +17,8 @@ author         'Gabor Szabo';
 all_from       'lib/Inline/Rakudo.pm';
 requires       'perl'                     => '5.008005';
 requires       'FindBin'                  => 0;
+requires       'Carp'                     => 0;
+requires       'Cwd'                      => 0;
 test_requires  'Test::More'               => '0.47';
 
 
